@@ -2,7 +2,6 @@ using DelimitedFiles
 using LinearAlgebra: dot
 
 using Graphs
-using GraphIO.EdgeList
 using GraphRecipes
 using Plots
 using SpecialFunctions: loggamma
@@ -182,7 +181,6 @@ function main(args=ARGS)
     time_output_filename = string(input_name, ".time")
 
     ## Graph
-    ## TODO
     println("Saving graph to $(graph_output_filename)...")
     es = map(e -> (string(variables[e.src].name), string(variables[e.dst].name)), edges(best_bn.graph))
     open(graph_output_filename, "w") do io
